@@ -17,6 +17,11 @@ I'm developping the Angular 2 samples along way I'm learning Angular 2. If you h
 for more details, please read the [johnpapa.net](https://johnpapa.net/zen-coding-in-visual-studio-2012/) blog
 ``` html
   div.form-froup>label+input.form-control[type='text']
+  
+  other example.
+
+  ul>li*5
+  
 ```
 Leave the cursor at the end, then press [tab]. this will generate
 
@@ -25,11 +30,31 @@ Leave the cursor at the end, then press [tab]. this will generate
         <label for="firstName">First Name</label>
         <input id="firstName" type="text" class="form-control">
     </div>
+    
+    <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+   </ul>
 ```
 
-
-
 ## Basic Form
+A form contains controls or groups of controls.  A Control and ControlGroup the have several properties:
+- value
+- touched
+- untouched
+- dirty
+- prestine
+- valid
+- errors
+
+
+![Control](./images/simple_control.jpg)
+![ControlGroup](./images/control-group.jpg)
+
+## ngControl
 
 **References **
 

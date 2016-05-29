@@ -7,5 +7,7 @@ import {Component } from 'angular2/core';
 })
 
 export class ContactFormComponent {
-  courses = [];
+  log(x){
+    console.log(x);
+  }
 }
