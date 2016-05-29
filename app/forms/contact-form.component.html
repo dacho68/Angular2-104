@@ -7,7 +7,7 @@
             id="firstName" 
             type="text" 
             class="form-control" required>
-        <div class="alert alert-danger"" *ngIf="!firstName.valid"> First name is required.</div>
+        <div class="alert alert-danger" *ngIf="!firstName.valid"> First name is required.</div>
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
@@ -18,8 +18,5 @@
         </textarea>
         <div *ngIf="!comment.valid" class="alert alert-danger"> Comment is required. </div>
     </div>    
-    
-
-    
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
