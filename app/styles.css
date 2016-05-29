@@ -1,0 +1,4 @@
+
+.ng-invalid.ng-touched {
+    border: 1x solid red;
+}

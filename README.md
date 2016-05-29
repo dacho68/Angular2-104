@@ -56,6 +56,50 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 
 ## ngControl
 
+``` html
+<form>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input  
+            ngControl="firstName" 
+            #wFirstName="ngForm"  
+            id="firstName" 
+            type="text" 
+            class="form-control" required
+            minlength="3">
+        <div *ngIf="wFirstName.touched && wFirstName.errors"> 
+            <div class="alert alert-danger" 
+                *ngIf="wFirstName.errors.required"> 
+                First name is required.
+            </div>
+            <div class="alert alert-danger" 
+                *ngIf="wFirstName.errors.minlength"> 
+                First name should be minmum {{wFirstName.errors.minlength.requiredLength}} characters.
+            </div>
+        </div>     
+            
+
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea #wComment="ngForm" 
+            ngControl="comment" 
+            id="comment" 
+            cols="30" rows="10" class="form-control" required>
+        </textarea>
+        <div *ngIf="wComment.touched && !wComment.valid" 
+            class="alert alert-danger"> 
+            Comment is required. 
+        </div>
+    </div>    
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+```
+
+
+
+
 **References **
 
 [Forms from the angular.io website](https://angular.io/docs/ts/latest/guide/forms.html)
