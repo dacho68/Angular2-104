@@ -41,6 +41,34 @@ Leave the cursor at the end, then press [tab]. this will generate
 ```
 
 ## Basic Form
+
+``` html
+<form>
+    <div class="form-­‐group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-­‐control">
+    </div>
+    <button type="submit" class="btn btn-­‐primary">Submit</button>
+</form>
+```
+
+## Template-driven forms
+Controls are created implicitly by Angular. This will give us limited control over validation
+(eg required, min length and max length via HTML5 attributes).
+
+**Example :**
+
+``` html
+<form>
+    …
+    <input ngControl="name">
+    …
+    <input ngControl="email">
+</form>
+
+``` 
+## Angular forms
+
 A form contains controls or groups of controls.  A Control and ControlGroup the have several properties:
 - value
 - touched
@@ -50,55 +78,33 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 - valid
 - errors
 
-
 ![Control](./images/simple_control.jpg)
 ![ControlGroup](./images/control-group.jpg)
 
-## ngControl
+### Showing Validation Errors
 
 ``` html
-<form>
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input  
-            ngControl="firstName" 
-            #wFirstName="ngForm"  
-            id="firstName" 
-            type="text" 
-            class="form-control" required
-            minlength="3">
-        <div *ngIf="wFirstName.touched && wFirstName.errors"> 
-            <div class="alert alert-danger" 
-                *ngIf="wFirstName.errors.required"> 
-                First name is required.
-            </div>
-            <div class="alert alert-danger" 
-                *ngIf="wFirstName.errors.minlength"> 
-                First name should be minmum {{wFirstName.errors.minlength.requiredLength}} characters.
-            </div>
-        </div>     
-            
+<input #name="ngForm" ngControl=“name" required>
+<div
+    class="alert alert-­‐danger"
+    *ngIf="name.touched && !name.valid">
+        Name is required.
+</div>
+``` 
 
+### Showing Specific Validation Errors
+
+``` html
+<input #name="ngForm" ngControl="name" required minlength="3">
+<div *ngIf="name.touched && name.errors"> 
+    <div *ngIf="name.errors.required" class="…">
+        Name is required.
     </div>
-    <div class="form-group">
-        <label for="comment">Comment</label>
-        <textarea #wComment="ngForm" 
-            ngControl="comment" 
-            id="comment" 
-            cols="30" rows="10" class="form-control" required>
-        </textarea>
-        <div *ngIf="wComment.touched && !wComment.valid" 
-            class="alert alert-danger"> 
-            Comment is required. 
-        </div>
-    </div>    
-    <button class="btn btn-primary" type="submit">Submit</button>
-</form>
-
-```
-
-
-
+    <div *ngIf="name.errors.minlength" class="…">
+        Name should be minimum 3 characters.
+    </div>
+</div>
+``` 
 
 **References **
 
