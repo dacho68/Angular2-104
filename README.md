@@ -106,6 +106,25 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 </div>
 ``` 
 
+### Disabling the submit button if form is invalid
+
+``` html
+<form #f="ngForm">
+…
+<button [disabled]="!f.valid">Submit</button>
+</form>
+``` 
+
+### Submiting the form
+
+``` html
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+…
+<button type="submit">Submit</button>
+</form>
+``` 
+
+
 **References **
 
 [Forms from the angular.io website](https://angular.io/docs/ts/latest/guide/forms.html)
