@@ -59,11 +59,16 @@ Controls are created implicitly by Angular. This will give us limited control ov
 **Example :**
 
 ``` html
-<form>
+<form [ngFormModel]="signupForm">
     …
     <input ngControl="name">
     …
     <input ngControl="email">
+    <div ngControlGroup="billing">
+        <input ngControl="cardNumber">
+        …
+        <input ngControl="expiry">
+    </div>
 </form>
 
 ``` 
@@ -140,11 +145,40 @@ For the complex validation you have explicitly add the controls to your componen
 ![User UserValidator](./images/Use_UserValidator.jpg)
 
 ### Async Validation
-Use for calling the server for the validation
+Use for calling the server for the validation. When using more than one custom or async validator, we use the compose or
+composeAsync methods:
+``` typescript
+[
+    defaultValue,
+    Validators.compose([v1,v2]),
+    Validators.composeAsync([v3,v4])
+];
+```
+
+To show a loader when an async validator is in progress:
+
+``` html
+<input ngControl="name">
+<div *ngIf="name.control.pending">Checking for uniqueness…</div>
+```
 
 ![UserValidator Component](./images/Async_Validator.jpg)
 
 ![User UserValidator](./images/Use_Async_Validator.jpg)
 **References **
+
+### Validating Upon Form Submit
+In the submit method you call the service for validation, if there is an error, you call setErrors method of the control.
+
+``` typescript
+    signup(){
+        //var result = authService.login(this.form.value);
+        this.form.find('username').setErrors({
+            invalidLogin: true
+        });
+        console.log(this.form.value);
+    }
+```
+
 
 [Forms from the angular.io website](https://angular.io/docs/ts/latest/guide/forms.html)
