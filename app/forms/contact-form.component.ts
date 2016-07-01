@@ -8,7 +8,7 @@ import {Component } from '@angular/core';
 
 export class ContactFormComponent {
   
-  onSubmit(form){
+  onSubmit(form:any){
     console.log(form);
   }
   

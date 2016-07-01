@@ -26,7 +26,7 @@
         <textarea #wComment="ngForm" 
             ngControl="comment" 
             id="comment" 
-            cols="30" rows="10" class="form-control" required>
+            cols="30" rows="2" class="form-control" required>
         </textarea>
         <div *ngIf="wComment.touched && !wComment.valid" 
             class="alert alert-danger"> 
