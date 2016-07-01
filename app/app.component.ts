@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 import {ContactFormComponent} from './forms/contact-form.component';
 import {SubscriptionFormComponent} from './exercises/subscription-form.component';
 import {SignUpFormComponent} from './forms/signup-form.component';
+import {ChangePasswordFormComponent} from './exercises/change-password-form.component'
 
 @Component({
     // element selector my-app
@@ -18,12 +19,14 @@ import {SignUpFormComponent} from './forms/signup-form.component';
               <h2>Exercise </h2>
               <h3>Subscription Form</h3>
               <subscription-form></subscription-form>
+              <h3>Change Password Form</h3>
+              <change-password-form></change-password-form>
               `
               
               ,
               
     // including those components
-   directives:[ContactFormComponent,SubscriptionFormComponent,SignUpFormComponent]
+   directives:[ContactFormComponent,SubscriptionFormComponent,SignUpFormComponent,ChangePasswordFormComponent]
 })
 
 export class AppComponent {
