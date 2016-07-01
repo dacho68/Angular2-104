@@ -52,7 +52,7 @@ Leave the cursor at the end, then press [tab]. this will generate
 </form>
 ```
 
-## Template-driven forms
+## Angular Form with Simple Validation
 Controls are created implicitly by Angular. This will give us limited control over validation
 (eg required, min length and max length via HTML5 attributes).
 
@@ -67,7 +67,6 @@ Controls are created implicitly by Angular. This will give us limited control ov
 </form>
 
 ``` 
-## Angular forms
 
 A form contains controls or groups of controls.  A Control and ControlGroup the have several properties:
 - value
@@ -95,7 +94,7 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 ### Showing Specific Validation Errors
 
 ``` html
-<input #name="ngForm" ngControl="name" required minlength="3">
+<input #name="ngForm" ngControl="name" required minlength="3" >
 <div *ngIf="name.touched && name.errors"> 
     <div *ngIf="name.errors.required" class="…">
         Name is required.
@@ -110,7 +109,7 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 
 ``` html
 <form #f="ngForm">
-…
+...
 <button [disabled]="!f.valid">Submit</button>
 </form>
 ``` 
@@ -119,11 +118,22 @@ A form contains controls or groups of controls.  A Control and ControlGroup the 
 
 ``` html
 <form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
-…
+...
 <button type="submit">Submit</button>
 </form>
 ``` 
 
+## Complex Validation
+
+For the complex validation you have explicitly add the controls to your component.
+![component](./images/ComplexValidation_Component.jpg)
+![html](./images/ComplexValidation_Html.jpg)
+
+### Using Form Builder Class
+
+![html](./images/FB_Component.jpg)
+
+### Custom Validator
 
 **References **
 
