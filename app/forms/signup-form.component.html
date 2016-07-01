@@ -3,12 +3,12 @@
         <label for="username">Username</label>
         <input  id="username"  type="text" class="form-control"
             ngControl="username"
-            username = "ngForm">
-            <div *ngId="username.touched && username.errors">
+            #username = "ngForm">
+            <div *ngIf="username.touched && username.errors">
             <div *ngIf="!username.valid"
                 class="alert alert-danger">Username is required.</div>
-            <div *ngIf="!username.errors.cannotContainSpace"
-                class="alert alert-danger">Username is required.</div>
+            <div *ngIf="username.errors.cannotContainSpace"
+                class="alert alert-danger">Username cannot contain space.</div>
             </div>
 
     </div>
