@@ -5,10 +5,12 @@
             ngControl="username"
             #username = "ngForm">
             <div *ngIf="username.touched && username.errors">
-            <div *ngIf="username.errors.required"
-                class="alert alert-danger">Username is required.</div>
-            <div *ngIf="username.errors.cannotContainSpace"
-                class="alert alert-danger">Username cannot contain space.</div>
+                <div *ngIf="username.errors.required"
+                    class="alert alert-danger">Username is required.</div>
+                <div *ngIf="username.errors.cannotContainSpace"
+                    class="alert alert-danger">Username cannot contain space.</div>
+                <div *ngIf="username.errors.shouldBeUnique"
+                     class="alert alert-danger">Username is already taken.</div>
             </div>
 
     </div>

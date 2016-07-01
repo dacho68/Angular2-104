@@ -135,6 +135,16 @@ For the complex validation you have explicitly add the controls to your componen
 
 ### Custom Validator
 
+![UserValidator Component](./images/UserValidator.jpg)
+
+![User UserValidator](./images/Use_UserValidator.jpg)
+
+### Async Validation
+Use for calling the server for the validation
+
+![UserValidator Component](./images/Async_Validator.jpg)
+
+![User UserValidator](./images/Use_Async_Validator.jpg)
 **References **
 
 [Forms from the angular.io website](https://angular.io/docs/ts/latest/guide/forms.html)

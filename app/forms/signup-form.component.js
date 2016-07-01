@@ -29,7 +29,8 @@ System.register(['@angular/core', '@angular/common', './usernameValidators'], fu
                     this.form = fb.group({
                         username: ['', common_1.Validators.compose([
                                 common_1.Validators.required,
-                                usernameValidators_1.UsernameValidators.cannotContainSpace])],
+                                usernameValidators_1.UsernameValidators.cannotContainSpace,
+                            ]), usernameValidators_1.UsernameValidators.shouldBeUnique],
                         password: ['', common_1.Validators.required]
                     });
                 }

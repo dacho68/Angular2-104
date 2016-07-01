@@ -14,7 +14,8 @@ export class SignUpFormComponent {
        this.form = fb.group({
             username: ['',Validators.compose([
                           Validators.required,
-                          UsernameValidators.cannotContainSpace])],
+                          UsernameValidators.cannotContainSpace,
+                        ]),UsernameValidators.shouldBeUnique],
             password: ['',Validators.required]
         })
     }
